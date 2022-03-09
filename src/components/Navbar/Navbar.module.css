@@ -1,0 +1,21 @@
+.container {
+  padding: 0 2em;
+  box-shadow: 0 2px 8px #f0f1f2;
+  background-color: #001529;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 1.5rem;
+  flex: 70%;
+  color: white;
+}
+
+.rightMenu {
+  flex: 10%;
+  border: 0;
+}
