@@ -9,6 +9,13 @@
   justify-content: space-between;
 }
 
+.imageContainer {
+  padding-left: 1em;
+  font-size: 1.5rem;
+  width: 150px;
+  height: 20px;
+}
+
 .title {
   font-size: 1.5rem;
   flex: 70%;

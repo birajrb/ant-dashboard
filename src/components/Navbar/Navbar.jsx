@@ -8,13 +8,14 @@ const { SubMenu } = Menu;
 function Navbar() {
   const [current, setCurrent] = useState("home");
   const handleClick = (e) => {
-    console.log("click ", e);
     setCurrent(e.key);
   };
   return (
     <Row style={{ backgroundColor: "#fff" }} justify="space-between">
-      <Col style={{ paddingLeft: "1em", fontSize: "1.5rem" }}>Dashboard</Col>
-      <Col>
+      <div className={styles.imageContainer}>
+        <img src="https://sandbox.com.np/static/media/logov2.a9e9c80c.svg" />
+      </div>
+      <div>
         <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal" style={{ border: "none" }}>
           <Menu.Item key="home" icon={<HomeOutlined />}></Menu.Item>
           <Menu.Item key="notification" icon={<BellOutlined />}></Menu.Item>
@@ -25,7 +26,7 @@ function Navbar() {
             </Menu.ItemGroup>
           </SubMenu>
         </Menu>
-      </Col>
+      </div>
     </Row>
   );
 }
