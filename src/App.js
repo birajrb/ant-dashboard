@@ -1,5 +1,5 @@
 import { Layout } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Sidebar from "./components/Sidebar/Sidebar";
@@ -9,9 +9,14 @@ function App() {
   const sidebarToggle = () => {
     setIsCollapsed((prev) => !prev);
   };
+
+  useEffect(() => {
+    window.innerWidth <= 760 ? setIsCollapsed(true) : setIsCollapsed(false);
+  }, []);
+
   const { Header, Content, Footer, Sider } = Layout;
   return (
-    <Layout>
+    <Layout className="main-layout">
       <Sider width={200} theme="light" trigger={null} collapsible collapsed={isCollapsed}>
         <Sidebar isCollapsed={isCollapsed} />
       </Sider>
@@ -19,7 +24,16 @@ function App() {
         <Header style={{ backgroundColor: "#fff", padding: "0" }}>
           <Navbar isCollapsed={isCollapsed} sidebarToggle={sidebarToggle} />
         </Header>
-        <Content style={{ minHeight: "95vh" }}>Content</Content>
+        <Content
+          style={{
+            margin: "24px 16px",
+            padding: 24,
+            minHeight: 280,
+            backgroundColor: "#fff",
+          }}
+        >
+          Content
+        </Content>
       </Layout>
     </Layout>
   );
