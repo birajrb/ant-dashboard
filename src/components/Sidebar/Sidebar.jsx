@@ -2,13 +2,21 @@ import { LaptopOutlined, NotificationOutlined, UserOutlined } from "@ant-design/
 import { Menu } from "antd";
 import React from "react";
 import styles from "./Sidebar.module.css";
+import cx from "classnames";
 
-function Sidebar() {
+function Sidebar({ isCollapsed }) {
   const { SubMenu } = Menu;
 
   return (
     <div className={styles.container}>
-      <Menu mode="inline" defaultSelectedKeys={["1"]} defaultOpenKeys={["sub1"]} style={{ height: "100%" }}>
+      {!isCollapsed ? <div className={cx(styles.title)}>Sandbox</div> : <div className={styles.title}>S</div>}
+      <Menu
+        theme="dark"
+        mode="inline"
+        defaultSelectedKeys={["1"]}
+        defaultOpenKeys={["sub1"]}
+        style={{ height: "95vh" }}
+      >
         <SubMenu key="sub1" icon={<UserOutlined />} title="subnav 1">
           <Menu.Item key="1">option1</Menu.Item>
           <Menu.Item key="2">option2</Menu.Item>

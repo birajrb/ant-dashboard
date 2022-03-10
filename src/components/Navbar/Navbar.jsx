@@ -1,20 +1,22 @@
 import { Col, Menu, Row } from "antd";
 import React, { useState } from "react";
 import styles from "./Navbar.module.css";
-import { HomeOutlined, BellOutlined, SettingOutlined } from "@ant-design/icons";
+import { HomeOutlined, BellOutlined, SettingOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
 
 const { SubMenu } = Menu;
 
-function Navbar() {
+function Navbar({ isCollapsed, sidebarToggle }) {
   const [current, setCurrent] = useState("home");
   const handleClick = (e) => {
     setCurrent(e.key);
   };
   return (
-    <Row style={{ backgroundColor: "#fff" }} justify="space-between">
-      <div className={styles.imageContainer}>
-        <img src="https://sandbox.com.np/static/media/logov2.a9e9c80c.svg" />
-      </div>
+    <Row justify="space-between">
+      {React.createElement(isCollapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+        className: styles.trigger,
+        onClick: sidebarToggle,
+      })}
+      <div></div>
       <div>
         <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal" style={{ border: "none" }}>
           <Menu.Item key="home" icon={<HomeOutlined />}></Menu.Item>
