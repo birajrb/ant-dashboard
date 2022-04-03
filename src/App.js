@@ -17,7 +17,7 @@ function App() {
   const { Header, Content, Footer, Sider } = Layout;
   return (
     <Layout className="main-layout">
-      <Sider width={200} theme="light" trigger={null} collapsible collapsed={isCollapsed}>
+      <Sider width={250} theme="dark" trigger={null} collapsible collapsed={isCollapsed}>
         <Sidebar isCollapsed={isCollapsed} />
       </Sider>
       <Layout className="main-wrapper">

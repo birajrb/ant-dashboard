@@ -1,4 +1,4 @@
-import { Col, Menu, Row } from "antd";
+import { Menu, Row } from "antd";
 import React, { useState } from "react";
 import styles from "./Navbar.module.css";
 import { HomeOutlined, BellOutlined, SettingOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
@@ -16,9 +16,13 @@ function Navbar({ isCollapsed, sidebarToggle }) {
         className: styles.trigger,
         onClick: sidebarToggle,
       })}
-      <div></div>
-      <div>
-        <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal" style={{ border: "none" }}>
+      <div style={{ border: "none", flex: "auto", justifySelf: "flex-end" }}>
+        <Menu
+          onClick={handleClick}
+          selectedKeys={[current]}
+          mode="horizontal"
+          style={{ border: "none", flex: "auto", justifyContent: "flex-end" }}
+        >
           <Menu.Item key="home" icon={<HomeOutlined />}></Menu.Item>
           <Menu.Item key="notification" icon={<BellOutlined />}></Menu.Item>
           <SubMenu key="SubMenu" icon={<SettingOutlined />}>
